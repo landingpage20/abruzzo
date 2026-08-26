@@ -1,0 +1,480 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh14540\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="it">\
+<head>\
+  <meta charset="UTF-8" />\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\
+  <title>Esplora l'Abruzzo | Cuore Verde d'Europa</title>\
+  <style>\
+    :root \{\
+      --primary: #1b4332;\
+      --primary-light: #2d6a4f;\
+      --accent: #d90429;\
+      --bg: #f8f9fa;\
+      --card-bg: #ffffff;\
+      --text: #2b2d42;\
+      --text-muted: #6c757d;\
+      --border: #e9ecef;\
+      --radius: 16px;\
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);\
+    \}\
+\
+    * \{\
+      box-sizing: border-box;\
+      margin: 0;\
+      padding: 0;\
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\
+    \}\
+\
+    body \{\
+      background-color: var(--bg);\
+      color: var(--text);\
+      line-height: 1.6;\
+    \}\
+\
+    /* Hero Section */\
+    .hero \{\
+      position: relative;\
+      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),\
+        url('https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;\
+      color: white;\
+      text-align: center;\
+      padding: 100px 20px 80px;\
+    \}\
+\
+    .hero h1 \{\
+      font-size: 3rem;\
+      font-weight: 800;\
+      margin-bottom: 12px;\
+      letter-spacing: -0.5px;\
+    \}\
+\
+    .hero p \{\
+      font-size: 1.25rem;\
+      max-width: 650px;\
+      margin: 0 auto;\
+      opacity: 0.95;\
+    \}\
+\
+    /* Container */\
+    .container \{\
+      max-width: 1100px;\
+      margin: 40px auto;\
+      padding: 0 20px;\
+    \}\
+\
+    .section-title \{\
+      text-align: center;\
+      margin-bottom: 35px;\
+    \}\
+\
+    .section-title h2 \{\
+      font-size: 2rem;\
+      color: var(--primary);\
+    \}\
+\
+    .section-title p \{\
+      color: var(--text-muted);\
+    \}\
+\
+    /* Cards Grid */\
+    .grid \{\
+      display: grid;\
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\
+      gap: 30px;\
+    \}\
+\
+    .card \{\
+      background: var(--card-bg);\
+      border-radius: var(--radius);\
+      overflow: hidden;\
+      box-shadow: var(--shadow);\
+      display: flex;\
+      flex-direction: column;\
+      border: 1px solid var(--border);\
+    \}\
+\
+    .card-img-wrapper \{\
+      position: relative;\
+      height: 240px;\
+      overflow: hidden;\
+    \}\
+\
+    .card-img \{\
+      width: 100%;\
+      height: 100%;\
+      object-fit: cover;\
+      transition: transform 0.4s ease;\
+    \}\
+\
+    .card:hover .card-img \{\
+      transform: scale(1.04);\
+    \}\
+\
+    .card-body \{\
+      padding: 20px;\
+      display: flex;\
+      flex-direction: column;\
+      flex-grow: 1;\
+    \}\
+\
+    .card-body h3 \{\
+      font-size: 1.35rem;\
+      margin-bottom: 8px;\
+      color: var(--primary);\
+    \}\
+\
+    .card-body p \{\
+      font-size: 0.95rem;\
+      color: var(--text-muted);\
+      margin-bottom: 16px;\
+    \}\
+\
+    /* Action Buttons */\
+    .card-actions \{\
+      display: flex;\
+      gap: 12px;\
+      margin-bottom: 20px;\
+      padding-bottom: 15px;\
+      border-bottom: 1px solid var(--border);\
+    \}\
+\
+    .btn \{\
+      display: inline-flex;\
+      align-items: center;\
+      gap: 6px;\
+      padding: 8px 14px;\
+      border-radius: 30px;\
+      font-size: 0.88rem;\
+      font-weight: 600;\
+      border: 1px solid var(--border);\
+      background: #fff;\
+      cursor: pointer;\
+      transition: all 0.2s ease;\
+    \}\
+\
+    .btn:hover \{\
+      background: #f1f3f5;\
+    \}\
+\
+    .btn-like.active \{\
+      color: var(--accent);\
+      border-color: var(--accent);\
+      background: #ffe3e3;\
+    \}\
+\
+    .btn-share:hover \{\
+      color: var(--primary);\
+      border-color: var(--primary);\
+    \}\
+\
+    /* Comments Section */\
+    .comments-section \{\
+      margin-top: auto;\
+    \}\
+\
+    .comments-title \{\
+      font-size: 0.85rem;\
+      font-weight: 700;\
+      text-transform: uppercase;\
+      letter-spacing: 0.5px;\
+      color: var(--text-muted);\
+      margin-bottom: 10px;\
+    \}\
+\
+    .comment-list \{\
+      list-style: none;\
+      max-height: 120px;\
+      overflow-y: auto;\
+      margin-bottom: 12px;\
+      display: flex;\
+      flex-direction: column;\
+      gap: 6px;\
+    \}\
+\
+    .comment-item \{\
+      font-size: 0.85rem;\
+      background: #f8f9fa;\
+      padding: 6px 12px;\
+      border-radius: 8px;\
+      border-left: 3px solid var(--primary-light);\
+    \}\
+\
+    .comment-form \{\
+      display: flex;\
+      gap: 8px;\
+    \}\
+\
+    .comment-input \{\
+      flex: 1;\
+      padding: 8px 12px;\
+      border-radius: 20px;\
+      border: 1px solid var(--border);\
+      font-size: 0.85rem;\
+      outline: none;\
+    \}\
+\
+    .comment-input:focus \{\
+      border-color: var(--primary);\
+    \}\
+\
+    .btn-comment \{\
+      background: var(--primary);\
+      color: #fff;\
+      border: none;\
+      padding: 8px 14px;\
+      border-radius: 20px;\
+      font-size: 0.85rem;\
+      font-weight: 600;\
+      cursor: pointer;\
+    \}\
+\
+    .btn-comment:hover \{\
+      background: var(--primary-light);\
+    \}\
+\
+    /* Toast Notification */\
+    .toast \{\
+      position: fixed;\
+      bottom: 20px;\
+      right: 20px;\
+      background: #333;\
+      color: #fff;\
+      padding: 12px 20px;\
+      border-radius: 8px;\
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);\
+      font-size: 0.9rem;\
+      opacity: 0;\
+      pointer-events: none;\
+      transform: translateY(10px);\
+      transition: all 0.3s ease;\
+      z-index: 1000;\
+    \}\
+\
+    .toast.show \{\
+      opacity: 1;\
+      transform: translateY(0);\
+    \}\
+\
+    /* Footer */\
+    footer \{\
+      text-align: center;\
+      padding: 30px 20px;\
+      background: var(--primary);\
+      color: white;\
+      margin-top: 60px;\
+      font-size: 0.9rem;\
+    \}\
+  </style>\
+</head>\
+<body>\
+\
+  <!-- Hero -->\
+  <header class="hero">\
+    <h1>Abruzzo Autentico</h1>\
+    <p>Dalle vette del Gran Sasso al mare della Costa dei Trabocchi: scopri, apprezza e condividi la magia della nostra terra.</p>\
+  </header>\
+\
+  <!-- Content -->\
+  <main class="container">\
+    <div class="section-title">\
+      <h2>Luoghi Iconici</h2>\
+      <p>Esplora le meraviglie, lascia il tuo mi piace e scrivi cosa ne pensi.</p>\
+    </div>\
+\
+    <div class="grid">\
+      <!-- Card 1: Rocca Calascio -->\
+      <article class="card" data-id="rocca-calascio">\
+        <div class="card-img-wrapper">\
+          <img class="card-img" src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80" alt="Rocca Calascio al tramonto" />\
+        </div>\
+        <div class="card-body">\
+          <h3>Rocca Calascio</h3>\
+          <p>Una delle fortezze pi\'f9 elevate d'Europa, sospesa a 1.460 metri nel Parco Nazionale del Gran Sasso.</p>\
+          \
+          <div class="card-actions">\
+            <button class="btn btn-like" onclick="toggleLike('rocca-calascio')">\
+              \uc0\u10084 \u65039  <span class="like-label">Mi piace</span> (<span class="like-count">124</span>)\
+            </button>\
+            <button class="btn btn-share" onclick="shareCard('Rocca Calascio', 'Una fortezza spettacolare nel cuore dell\\'Abruzzo!')">\
+              \uc0\u55357 \u56599  Condividi\
+            </button>\
+          </div>\
+\
+          <div class="comments-section">\
+            <div class="comments-title">Commenti</div>\
+            <ul class="comment-list" id="comments-rocca-calascio">\
+              <li class="comment-item">Un panorama indimenticabile al tramonto!</li>\
+            </ul>\
+            <form class="comment-form" onsubmit="addComment(event, 'rocca-calascio')">\
+              <input type="text" class="comment-input" placeholder="Scrivi un commento..." required />\
+              <button type="submit" class="btn-comment">Invia</button>\
+            </form>\
+          </div>\
+        </div>\
+      </article>\
+\
+      <!-- Card 2: Costa dei Trabocchi -->\
+      <article class="card" data-id="trabocchi">\
+        <div class="card-img-wrapper">\
+          <img class="card-img" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Costa dei Trabocchi sul Mare Adriatico" />\
+        </div>\
+        <div class="card-body">\
+          <h3>Costa dei Trabocchi</h3>\
+          <p>Antiche macchine da pesca protese sull'Adriatico lungo una delle coste pi\'f9 suggestive del Mediterraneo.</p>\
+          \
+          <div class="card-actions">\
+            <button class="btn btn-like" onclick="toggleLike('trabocchi')">\
+              \uc0\u10084 \u65039  <span class="like-label">Mi piace</span> (<span class="like-count">98</span>)\
+            </button>\
+            <button class="btn btn-share" onclick="shareCard('Costa dei Trabocchi', 'Il fascino unico dei trabocchi sul mare abruzzese!')">\
+              \uc0\u55357 \u56599  Condividi\
+            </button>\
+          </div>\
+\
+          <div class="comments-section">\
+            <div class="comments-title">Commenti</div>\
+            <ul class="comment-list" id="comments-trabocchi">\
+              <li class="comment-item">Cenare su un trabocco \'e8 un'esperienza unica.</li>\
+            </ul>\
+            <form class="comment-form" onsubmit="addComment(event, 'trabocchi')">\
+              <input type="text" class="comment-input" placeholder="Scrivi un commento..." required />\
+              <button type="submit" class="btn-comment">Invia</button>\
+            </form>\
+          </div>\
+        </div>\
+      </article>\
+\
+      <!-- Card 3: Campo Imperatore -->\
+      <article class="card" data-id="campo-imperatore">\
+        <div class="card-img-wrapper">\
+          <img class="card-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Altopiano di Campo Imperatore" />\
+        </div>\
+        <div class="card-body">\
+          <h3>Campo Imperatore</h3>\
+          <p>Soprannominato il "Piccolo Tibet", un vasto altopiano carsico dominato dalle vette del Gran Sasso.</p>\
+          \
+          <div class="card-actions">\
+            <button class="btn btn-like" onclick="toggleLike('campo-imperatore')">\
+              \uc0\u10084 \u65039  <span class="like-label">Mi piace</span> (<span class="like-count">156</span>)\
+            </button>\
+            <button class="btn btn-share" onclick="shareCard('Campo Imperatore', 'Il Piccolo Tibet d\\'Europa nel cuore d\\'Abruzzo!')">\
+              \uc0\u55357 \u56599  Condividi\
+            </button>\
+          </div>\
+\
+          <div class="comments-section">\
+            <div class="comments-title">Commenti</div>\
+            <ul class="comment-list" id="comments-campo-imperatore">\
+              <li class="comment-item">Spazi infiniti e cielo limpidissimo.</li>\
+            </ul>\
+            <form class="comment-form" onsubmit="addComment(event, 'campo-imperatore')">\
+              <input type="text" class="comment-input" placeholder="Scrivi un commento..." required />\
+              <button type="submit" class="btn-comment">Invia</button>\
+            </form>\
+          </div>\
+        </div>\
+      </article>\
+    </div>\
+  </main>\
+\
+  <!-- Toast -->\
+  <div id="toast" class="toast">Link copiato negli appunti!</div>\
+\
+  <!-- Footer -->\
+  <footer>\
+    <p>&copy; 2026 Abruzzo Experience &bull; Creato con passione per l'Abruzzo</p>\
+  </footer>\
+\
+  <!-- Logic Script -->\
+  <script>\
+    // Caricamento commenti salvati in locale all'avvio\
+    document.addEventListener("DOMContentLoaded", () => \{\
+      const cards = ["rocca-calascio", "trabocchi", "campo-imperatore"];\
+      cards.forEach((id) => \{\
+        const savedComments = JSON.parse(localStorage.getItem(`comments_$\{id\}`)) || [];\
+        const list = document.getElementById(`comments-$\{id\}`);\
+        savedComments.forEach((text) => \{\
+          const li = document.createElement("li");\
+          li.className = "comment-item";\
+          li.textContent = text;\
+          list.appendChild(li);\
+        \});\
+      \});\
+    \});\
+\
+    // Gestione Mi Piace\
+    function toggleLike(id) \{\
+      const card = document.querySelector(`[data-id="$\{id\}"]`);\
+      const btn = card.querySelector(".btn-like");\
+      const countSpan = card.querySelector(".like-count");\
+      let count = parseInt(countSpan.textContent, 10);\
+\
+      if (btn.classList.contains("active")) \{\
+        btn.classList.remove("active");\
+        countSpan.textContent = count - 1;\
+      \} else \{\
+        btn.classList.add("active");\
+        countSpan.textContent = count + 1;\
+      \}\
+    \}\
+\
+    // Gestione Condividi\
+    async function shareCard(title, text) \{\
+      if (navigator.share) \{\
+        try \{\
+          await navigator.share(\{\
+            title: title + " - Abruzzo",\
+            text: text,\
+            url: window.location.href,\
+          \});\
+        \} catch (err) \{\
+          // Condivisione annullata dall'utente\
+        \}\
+      \} else \{\
+        navigator.clipboard.writeText(window.location.href).then(() => \{\
+          showToast("Link copiato negli appunti!");\
+        \});\
+      \}\
+    \}\
+\
+    // Aggiunta Commenti\
+    function addComment(event, id) \{\
+      event.preventDefault();\
+      const form = event.target;\
+      const input = form.querySelector(".comment-input");\
+      const text = input.value.trim();\
+\
+      if (!text) return;\
+\
+      const list = document.getElementById(`comments-$\{id\}`);\
+      const li = document.createElement("li");\
+      li.className = "comment-item";\
+      li.textContent = text;\
+      list.appendChild(li);\
+\
+      // Salva in localStorage\
+      const savedComments = JSON.parse(localStorage.getItem(`comments_$\{id\}`)) || [];\
+      savedComments.push(text);\
+      localStorage.setItem(`comments_$\{id\}`, JSON.stringify(savedComments));\
+\
+      input.value = "";\
+      list.scrollTop = list.scrollHeight;\
+    \}\
+\
+    // Notifica Toast\
+    function showToast(message) \{\
+      const toast = document.getElementById("toast");\
+      toast.textContent = message;\
+      toast.classList.add("show");\
+      setTimeout(() => toast.classList.remove("show"), 2500);\
+    \}\
+  </script>\
+</body>\
+</html>}
