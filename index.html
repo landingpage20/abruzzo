@@ -1,859 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Authentic Abruzzo | Green Heart of Europe</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scopri l'Abruzzo</title>
   <style>
     :root {
-      --primary: #2d5a27;
-      --primary-hover: #1e3f1a;
-      --bg: #f4f6f8;
+      --primary: #1a91d1;
+      --bg: #f8fafc;
       --card-bg: #ffffff;
-      --text: #2c3e50;
-      --text-muted: #667085;
-      --border: #e2e8f0;
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      --radius: 14px;
+      --text: #1e293b;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.55)),
-        url('punta-aderci.jpg') center/cover no-repeat;
-      color: #ffffff;
-      text-align: center;
-      padding: 100px 20px 85px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 650px;
-      margin: 0 auto;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-      opacity: 0.95;
-    }
-
-    /* Main Container */
-    .container {
-      max-width: 1140px;
-      margin: 45px auto;
-      padding: 0 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    /* Grid & Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    }
-
-    .card-img-wrapper {
-      position: relative;
-      height: 220px;
-      overflow: hidden;
-      background: #e2e8f0;
-    }
-
-    .card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-      cursor: pointer;
-    }
-
-    .card:hover .card-img {
-      transform: scale(1.03);
-    }
-
-    .card-body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .card-body h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #111827;
-    }
-
-    .card-body p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    /* Discovery Actions */
-    .discovery-actions {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .btn-discovery {
-      flex: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid #cbd5e1;
-      background: #f8fafc;
-      color: #334155;
-    }
-
-    .btn-discovery:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-
-    .btn-info {
-      border-color: #cbd5e1;
-    }
-
-    /* Action Buttons */
-    .card-actions {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      flex: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 9px 14px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      color: var(--text);
-    }
-
-    .btn:hover {
-      background: #f8fafc;
-    }
-
-    .btn-like.active {
-      background: #fee2e2;
-      border-color: #fca5a5;
-      color: #e11d48;
-    }
-
-    .btn-share {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-    }
-
-    .btn-share:hover {
-      background: var(--primary-hover);
-    }
-
-    /* Comments */
-    .comments-section {
-      margin-top: auto;
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
-    }
-
-    .comment-list {
-      list-style: none;
-      max-height: 110px;
-      overflow-y: auto;
-      margin-bottom: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .comment-item {
-      font-size: 0.85rem;
-      background: #f8fafc;
-      padding: 7px 12px;
-      border-radius: 6px;
-      border-left: 3px solid var(--primary);
-      color: #334155;
-    }
-
-    .comment-form {
-      display: flex;
-      gap: 6px;
-    }
-
-    .comment-input {
-      flex: 1;
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      font-size: 0.85rem;
-      outline: none;
-      background: #fcfcfc;
-    }
-
-    .comment-input:focus {
-      border-color: var(--primary);
-      background: #fff;
-    }
-
-    .btn-comment {
-      background: var(--text);
-      color: #ffffff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .btn-comment:hover {
-      opacity: 0.9;
-    }
-
-    /* Modal Gallery */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(5px);
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content-wrapper {
-      position: relative;
-      max-width: 90%;
-      max-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-img {
-      max-width: 100%;
-      max-height: 75vh;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      object-fit: contain;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 25px;
-      right: 35px;
-      color: #ffffff;
-      font-size: 40px;
-      font-weight: 300;
-      cursor: pointer;
-      line-height: 1;
-      transition: color 0.2s;
-    }
-
-    .modal-close:hover {
-      color: #e2e8f0;
-    }
-
-    .modal-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: none;
-      font-size: 28px;
-      padding: 12px 18px;
-      cursor: pointer;
-      border-radius: 50%;
-      transition: background 0.2s;
-      user-select: none;
-    }
-
-    .modal-nav:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    .modal-prev {
-      left: -60px;
-    }
-
-    .modal-next {
-      right: -60px;
-    }
-
-    .modal-caption {
-      margin-top: 15px;
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .modal-thumbnails {
-      display: flex;
-      gap: 8px;
-      margin-top: 12px;
-      max-width: 90%;
-      overflow-x: auto;
-      padding-bottom: 5px;
-    }
-
-    .modal-thumb {
-      width: 60px;
-      height: 45px;
-      object-fit: cover;
-      border-radius: 4px;
-      cursor: pointer;
-      opacity: 0.5;
-      border: 2px solid transparent;
-      transition: all 0.2s;
-    }
-
-    .modal-thumb.active {
-      opacity: 1;
-      border-color: #ffffff;
-    }
-
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #1e293b;
-      color: #ffffff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: #ffffff;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      margin-top: 60px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .modal-prev { left: 10px; }
-      .modal-next { right: 10px; }
-      .modal-close { top: 15px; right: 20px; }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 20px; }
+    header { text-align: center; margin-bottom: 30px; }
+    h1 { color: var(--primary); margin-bottom: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    .card img { width: 100%; height: 200px; object-fit: cover; cursor: pointer; }
+    .card-content { padding: 16px; }
+    .card-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: #0f172a; }
+    
+    /* Modal / Gallery */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 1000; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; padding: 20px; border-radius: 12px; max-width: 90%; max-height: 90%; text-align: center; position: relative; }
+    .modal-content img { max-width: 100%; max-height: 70vh; border-radius: 8px; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; border: none; background: none; }
   </style>
 </head>
 <body>
 
-  <!-- Hero Header -->
-  <header class="hero">
-    <h1>Authentic Abruzzo</h1>
-    <p>From the rugged peaks of Gran Sasso to the sparkling Adriatic Trabocchi Coast: explore, enjoy, and share the magic of our land.</p>
+  <header>
+    <h1>Vivi l'Abruzzo</h1>
+    <p>Esplora la natura incontaminata, i borghi storici e la costa mozzafiato.</p>
   </header>
 
-  <!-- Main Content -->
-  <main class="container">
-    <div class="section-title">
-      <h2>Dream Destinations</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=600&q=80" alt="Rocca Calascio" onclick="openGallery('Rocca Calascio', 1)">
+      <div class="card-content">
+        <div class="card-title">Rocca Calascio</div>
+        <p>Uno dei castelli più alti d'Europa, con una vista panoramica spettacolare sulle montagne abruzzesi.</p>
+      </div>
     </div>
 
-    <div class="grid">
-      <!-- Card 1: Rocca Calascio -->
-      <article class="card" data-id="Rocca Calascio">
-        <div class="card-img-wrapper">
-          <img class="card-img" src="rocca-calascio-830x554-2.jpg" alt="Rocca Calascio" onclick="openGallery('rocca-calascio', 0)" />
-        </div>
-        <div class="card-body">
-          <h3>Rocca Calascio</h3>
-          <p>A magical fortress perched at 1,460 meters in the heart of the Gran Sasso National Park.</p>
-          
-          <div class="discovery-actions">
-            <button class="btn-discovery" onclick="openGallery('rocca-calascio', 0)">
-              🖼️ Gallery
-            </button>
-            <a 
-              href="https://www.abruzzoturismo.it/it/destinazioni/rocca-calascio-aq" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="btn-discovery btn-info"
-              onclick="logExternalClick('Rocca Calascio', 'https://www.abruzzoturismo.it/it/destinazioni/rocca-calascio-aq')"
-            >
-              ℹ️ More info
-            </a>
-          </div>
-
-          <div class="card-actions">
-            <button class="btn btn-like" onclick="toggleLike(this, 'Rocca Calascio')">
-              <span class="heart-icon">🤍</span> <span class="like-label">Like</span>
-            </button>
-            <button class="btn btn-share" onclick="shareCard('Rocca Calascio', 'Discover this breathtaking fortress in Abruzzo!')">
-              Share
-            </button>
-          </div>
-
-          <div class="comments-section">
-            <ul class="comment-list" id="comments-Rocca Calascio">
-              <li class="comment-item">An unforgettable sunset view over the mountains!</li>
-            </ul>
-            <form class="comment-form" onsubmit="addComment(event, 'Rocca Calascio')">
-              <input 
-                type="text" 
-                class="comment-input" 
-                placeholder="Write a comment..." 
-                required 
-                oninvalid="this.setCustomValidity('Please fill out this field.')" 
-                oninput="this.setCustomValidity('')" 
-              />
-              <button type="submit" class="btn-comment">Post</button>
-            </form>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 2: Trabocchi Coast -->
-      <article class="card" data-id="Trabocchi Coast">
-        <div class="card-img-wrapper">
-          <img class="card-img" src="trabocco-punta-isolata-hd.jpg" alt="Trabocchi Coast" onclick="openGallery('trabocchi', 0)" />
-        </div>
-        <div class="card-body">
-          <h3>Trabocchi Coast</h3>
-          <p>Ancient wooden fishing structures stretching out over crystal-clear Adriatic waters.</p>
-          
-          <div class="discovery-actions">
-            <button class="btn-discovery" onclick="openGallery('trabocchi', 0)">
-              🖼️ Gallery
-            </button>
-            <a 
-              href="https://abruzzoturismo.it/en/trabocchi-coast" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="btn-discovery btn-info"
-              onclick="logExternalClick('Trabocchi Coast', 'https://abruzzoturismo.it/en/trabocchi-coast')"
-            >
-              ℹ️ More info
-            </a>
-          </div>
-
-          <div class="card-actions">
-            <button class="btn btn-like" onclick="toggleLike(this, 'Trabocchi Coast')">
-              <span class="heart-icon">🤍</span> <span class="like-label">Like</span>
-            </button>
-            <button class="btn btn-share" onclick="shareCard('Trabocchi Coast', 'The unique charm of traditional fishing piers in Abruzzo!')">
-              Share
-            </button>
-          </div>
-
-          <div class="comments-section">
-            <ul class="comment-list" id="comments-Trabocchi Coast">
-              <li class="comment-item">Dining directly on a trabocco is a magical experience.</li>
-            </ul>
-            <form class="comment-form" onsubmit="addComment(event, 'Trabocchi Coast')">
-              <input 
-                type="text" 
-                class="comment-input" 
-                placeholder="Write a comment..." 
-                required 
-                oninvalid="this.setCustomValidity('Please fill out this field.')" 
-                oninput="this.setCustomValidity('')" 
-              />
-              <button type="submit" class="btn-comment">Post</button>
-            </form>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 3: Campo Imperatore -->
-      <article class="card" data-id="Campo Imperatore">
-        <div class="card-img-wrapper">
-          <img class="card-img" src="Campo_Imperatore.jpg" alt="Campo Imperatore plateau" onclick="openGallery('campo-imperatore', 0)" />
-        </div>
-        <div class="card-body">
-          <h3>Campo Imperatore</h3>
-          <p>Known as Europe's "Little Tibet", a vast highland plateau surrounded by majestic alpine peaks.</p>
-          
-          <div class="discovery-actions">
-            <button class="btn-discovery" onclick="openGallery('campo-imperatore', 0)">
-              🖼️ Gallery
-            </button>
-            <a 
-              href="https://www.abruzzoturismo.it/it/destinazioni/altopiano-di-campo-imperatore" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="btn-discovery btn-info"
-              onclick="logExternalClick('Campo Imperatore', 'https://www.abruzzoturismo.it/it/destinazioni/altopiano-di-campo-imperatore')"
-            >
-              ℹ️ More info
-            </a>
-          </div>
-
-          <div class="card-actions">
-            <button class="btn btn-like" onclick="toggleLike(this, 'Campo Imperatore')">
-              <span class="heart-icon">🤍</span> <span class="like-label">Like</span>
-            </button>
-            <button class="btn btn-share" onclick="shareCard('Campo Imperatore', 'Europe\'s Little Tibet in the heart of Abruzzo!')">
-              Share
-            </button>
-          </div>
-
-          <div class="comments-section">
-            <ul class="comment-list" id="comments-Campo Imperatore">
-              <li class="comment-item">Endless horizons and untouched nature.</li>
-            </ul>
-            <form class="comment-form" onsubmit="addComment(event, 'Campo Imperatore')">
-              <input 
-                type="text" 
-                class="comment-input" 
-                placeholder="Write a comment..." 
-                required 
-                oninvalid="this.setCustomValidity('Please fill out this field.')" 
-                oninput="this.setCustomValidity('')" 
-              />
-              <button type="submit" class="btn-comment">Post</button>
-            </form>
-          </div>
-        </div>
-      </article>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Costa dei Trabocchi" onclick="openGallery('Costa dei Trabocchi', 1)">
+      <div class="card-content">
+        <div class="card-title">Costa dei Trabocchi</div>
+        <p>Litorale famoso per le antiche palafitte da pesca trasformate in suggestive palafitte sul mare.</p>
+      </div>
     </div>
-  </main>
-
-  <!-- Lightbox Modal -->
-  <div id="galleryModal" class="modal" onclick="closeModalOnBg(event)">
-    <span class="modal-close" onclick="closeGallery()">&times;</span>
-    <div class="modal-content-wrapper">
-      <button class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</button>
-      <img id="modalImage" class="modal-img" src="" alt="Gallery Image" />
-      <button class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</button>
-    </div>
-    <div id="modalCaption" class="modal-caption"></div>
-    <div id="modalThumbnails" class="modal-thumbnails"></div>
   </div>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="toast">Link copied to clipboard!</div>
+  <div class="modal" id="imageModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeGallery()">&times;</button>
+      <img id="modalImg" src="" alt="Gallery Image">
+      <h3 id="modalTitle" style="margin-top: 10px;"></h3>
+    </div>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Authentic Abruzzo &bull; All rights reserved</p>
-  </footer>
-
-  <!-- Script Logic & Tracking -->
   <script>
+    // 1. CONFIGURAZIONE: Inserisci qui l'URL del tuo Web App Google Apps Script
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7OWo0Dn6v6SeueFzKpcchAo77pGAZHqW70Vxpnz74R8CWquvDRqkKBLFJEfW4uPszcg/exec";
 
-    // 1. Estrazione dinamica sicura dall'URL
+    // 2. Lettura parametri dall'URL
     const urlParams = new URLSearchParams(window.location.search);
-
-    // Recupera session_id (da session_id o sid in URL)
-    let sessionId = urlParams.get('session_id') || urlParams.get('sid');
-    if (sessionId) {
-      sessionStorage.setItem('site_session_id', sessionId);
-    } else {
-      sessionId = sessionStorage.getItem('site_session_id') || ('SESS_' + Math.random().toString(36).substr(2, 9));
-      sessionStorage.setItem('site_session_id', sessionId);
-    }
-
-    // Recupera user_id (da uid o user_id in URL). Se non presente, usa lo stesso sessionId
-    let userId = urlParams.get('uid') || urlParams.get('user_id');
-    if (userId) {
-      localStorage.setItem('qualtrics_user_id', userId);
-    } else {
-      userId = localStorage.getItem('qualtrics_user_id') || sessionId;
-    }
+    const sessionId = urlParams.get('session_id') || urlParams.get('uid') || 'unknown';
+    const userId = urlParams.get('uid') || urlParams.get('session_id') || 'unknown';
 
     const pageStartTime = Date.now();
+    let currentDestination = "Landing Page";
 
-    // 2. Invio dei dati al Google Sheet
-    function sendToGoogleSheet(eventType, destination, details) {
-      if (!GOOGLE_SCRIPT_URL) return;
+    // Funzione principale di tracciamento
+    function logEvent(eventType, destination, details) {
+      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("INSERISCI_QUI")) {
+        console.warn("URL di Google Apps Script non configurato.");
+        return;
+      }
 
       const payload = {
         user_id: userId,
         session_id: sessionId,
         event_type: eventType,
-        destination: destination || 'N/A',
+        destination: destination || '',
         details: details || ''
       };
 
       fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
-      }).catch(err => console.error('Errore invio dati:', err));
+      }).catch(err => console.error("Tracking Error:", err));
     }
 
-    // Mappatura immagini
-    const galleries = {
-      "rocca-calascio": {
-        title: "Rocca Calascio",
-        images: [
-          { src: "rocca-calascio-830x554-2.jpg", caption: "Sunset glow over Rocca Calascio" },
-          { src: "Roccacalascio2.jpg", caption: "Historic stone walls with golden horizon" },
-          { src: "roccacalascio3.jpeg", caption: "Illuminated keep at dusk" },
-          { src: "rocca_calascio_7.webp", caption: "Aerial view over the fortress and valley" }
-        ]
-      },
-      "trabocchi": {
-        title: "Trabocchi Coast",
-        images: [
-          { src: "trabocco-punta-isolata-hd.jpg", caption: "Trabocco Punta Isolata over turquoise waters" },
-          { src: "Trabocco Punta Rocciosa-Fossacesia (31).JPG", caption: "Trabocco Punta Rocciosa in Fossacesia" },
-          { src: "trabucco-Punta-Tufano-Denio-Di-Nardo.jpg", caption: "Fishing nets at sunset - Trabocco Punta Tufano" },
-          { src: "trabocchi.webp", caption: "Golden hour reflection on the Adriatic sea" }
-        ]
-      },
-      "campo-imperatore": {
-        title: "Campo Imperatore",
-        images: [
-          { src: "Campo_Imperatore.jpg", caption: "Pastoral landscape with cows and mountain peaks" },
-          { src: "campoimperatore2.png", caption: "Spring blooming saffron crocuses in Campo Imperatore" },
-          { src: "campo-imperatore.webp", caption: "Gran Sasso reflection in the highland lake" },
-          { src: "campoimperatore3.jpg", caption: "Winter snowy expanse across the Little Tibet" }
-        ]
-      }
-    };
-
-    let currentGalleryKey = null;
-    let currentImageIndex = 0;
-
-    // Tracciamento caricamento e tempo di permanenza
-    window.addEventListener("load", () => {
-      sendToGoogleSheet("page_view", "Landing Page", "User loaded landing page");
+    // Tracciamento caricamento pagina iniziale
+    window.addEventListener('DOMContentLoaded', () => {
+      logEvent('page_view', 'Landing Page', 'User loaded landing page');
     });
 
-    window.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") {
-        const timeSpentSeconds = Math.round((Date.now() - pageStartTime) / 1000);
-        sendToGoogleSheet("time_on_page", "Landing Page", `Duration: ${timeSpentSeconds} seconds`);
-      }
+    // Tracciamento tempo trascorso alla chiusura/abbandono pagina
+    window.addEventListener('beforeunload', () => {
+      const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
+      logEvent('time_on_page', 'Landing Page', `Duration: ${timeSpent} seconds`);
     });
 
-    function logExternalClick(destination, url) {
-      sendToGoogleSheet("more_info_click", destination, `Opened external URL: ${url}`);
-    }
+    // Gestione Gallerie / Immagini
+    function openGallery(destinationName, imageIndex) {
+      currentDestination = destinationName;
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalTitle = document.getElementById('modalTitle');
 
-    function openGallery(galleryKey, index = 0) {
-      currentGalleryKey = galleryKey;
-      currentImageIndex = index;
-      const gallery = galleries[galleryKey];
-      if (!gallery) return;
+      modalImg.src = event.target.src;
+      modalTitle.textContent = destinationName;
+      modal.classList.add('active');
 
-      sendToGoogleSheet("gallery_open", gallery.title, `Opened image #${index + 1}`);
-
-      const modal = document.getElementById("galleryModal");
-      modal.classList.add("active");
-      updateModalContent();
+      logEvent('gallery_open', destinationName, `Opened image #${imageIndex}`);
     }
 
     function closeGallery() {
-      const modal = document.getElementById("galleryModal");
-      modal.classList.remove("active");
-      if (currentGalleryKey) {
-        sendToGoogleSheet("gallery_close", galleries[currentGalleryKey].title, "Closed gallery");
-      }
-    }
-
-    function closeModalOnBg(event) {
-      if (event.target.id === "galleryModal") {
-        closeGallery();
-      }
-    }
-
-    function changeImage(direction) {
-      const gallery = galleries[currentGalleryKey];
-      if (!gallery) return;
-
-      currentImageIndex += direction;
-      if (currentImageIndex < 0) currentImageIndex = gallery.images.length - 1;
-      if (currentImageIndex >= gallery.images.length) currentImageIndex = 0;
-
-      sendToGoogleSheet("gallery_navigate", gallery.title, `Navigated to image #${currentImageIndex + 1}: ${gallery.images[currentImageIndex].src}`);
-      updateModalContent();
-    }
-
-    function setImageIndex(index) {
-      currentImageIndex = index;
-      const gallery = galleries[currentGalleryKey];
-      sendToGoogleSheet("gallery_thumb_click", gallery.title, `Selected thumbnail #${index + 1}`);
-      updateModalContent();
-    }
-
-    function updateModalContent() {
-      const gallery = galleries[currentGalleryKey];
-      const imgData = gallery.images[currentImageIndex];
-
-      document.getElementById("modalImage").src = imgData.src;
-      document.getElementById("modalCaption").textContent = `${gallery.title} (${currentImageIndex + 1}/${gallery.images.length}) - ${imgData.caption}`;
-
-      const thumbContainer = document.getElementById("modalThumbnails");
-      thumbContainer.innerHTML = "";
-      gallery.images.forEach((img, idx) => {
-        const thumb = document.createElement("img");
-        thumb.src = img.src;
-        thumb.className = `modal-thumb ${idx === currentImageIndex ? 'active' : ''}`;
-        thumb.onclick = () => setImageIndex(idx);
-        thumbContainer.appendChild(thumb);
-      });
-    }
-
-    document.addEventListener("keydown", (e) => {
-      const modal = document.getElementById("galleryModal");
-      if (!modal.classList.contains("active")) return;
-
-      if (e.key === "Escape") closeGallery();
-      if (e.key === "ArrowLeft") changeImage(-1);
-      if (e.key === "ArrowRight") changeImage(1);
-    });
-
-    function toggleLike(btn, destination) {
-      const heart = btn.querySelector(".heart-icon");
-      const label = btn.querySelector(".like-label");
-
-      if (btn.classList.contains("active")) {
-        btn.classList.remove("active");
-        heart.textContent = "🤍";
-        label.textContent = "Like";
-        sendToGoogleSheet("unlike", destination, "User removed like");
-      } else {
-        btn.classList.add("active");
-        heart.textContent = "❤️";
-        label.textContent = "Liked";
-        sendToGoogleSheet("like", destination, "User clicked like");
-      }
-    }
-
-    async function shareCard(destination, shareText) {
-      sendToGoogleSheet("share_click", destination, "User clicked share button");
-
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: destination + " - Abruzzo",
-            text: shareText,
-            url: window.location.href,
-          });
-          sendToGoogleSheet("share_success", destination, "Native share completed");
-        } catch (e) {}
-      } else {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          showToast("Link copied to clipboard!");
-        });
-      }
-    }
-
-    function addComment(event, destination) {
-      event.preventDefault();
-      const form = event.target;
-      const input = form.querySelector(".comment-input");
-      const text = input.value.trim();
-
-      if (!text) return;
-
-      const list = document.getElementById(`comments-${destination}`);
-      const li = document.createElement("li");
-      li.className = "comment-item";
-      li.textContent = text;
-      list.appendChild(li);
-
-      sendToGoogleSheet("new_comment", destination, text);
-
-      input.value = "";
-      list.scrollTop = list.scrollHeight;
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2500);
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      logEvent('gallery_close', currentDestination, 'Closed gallery');
     }
   </script>
 </body>
