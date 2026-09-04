@@ -628,7 +628,7 @@
   <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNKA-19WRqDJD470B0Xt8-erwL8e8nqwwBajNJjSctWJcSwoDpSjJDbq7OXQMsHZjB/exec";
 
-    // Recupera l'ID Qualtrics dall'URL (?uid=...) con persistenza in localStorage
+    // 1. Recupera l'ID Qualtrics/Utente dall'URL (?uid=...) con persistenza in localStorage
     const urlParams = new URLSearchParams(window.location.search);
     let userId = urlParams.get('uid');
     if (userId) {
@@ -637,16 +637,18 @@
       userId = localStorage.getItem('qualtrics_user_id') || 'ANONIMO_NO_ID';
     }
 
-    // Session ID temporaneo di navigazione
-    let sessionId = sessionStorage.getItem('site_session_id');
-    if (!sessionId) {
-      sessionId = 'sess_' + Math.random().toString(36).substr(2, 9);
+    // 2. Recupera il session_id dall'URL (?session_id=... oppure ?sid=...) con fallback su sessionStorage o generazione casuale
+    let sessionId = urlParams.get('session_id') || urlParams.get('sid');
+    if (sessionId) {
+      sessionStorage.setItem('site_session_id', sessionId);
+    } else {
+      sessionId = sessionStorage.getItem('site_session_id') || ('sess_' + Math.random().toString(36).substr(2, 9));
       sessionStorage.setItem('site_session_id', sessionId);
     }
 
     const pageStartTime = Date.now();
 
-    // Invio payload conforme alle 6 colonne dello script
+    // Invio payload conforme alle colonne dello script
     function sendToGoogleSheet(eventType, destination, details) {
       if (!GOOGLE_SCRIPT_URL) return;
 
@@ -666,7 +668,7 @@
       }).catch(err => console.error('Errore invio dati:', err));
     }
 
-    // Mappatura immagini aggiornata senza spazi
+    // Mappatura immagini
     const galleries = {
       "rocca-calascio": {
         title: "Rocca Calascio",
