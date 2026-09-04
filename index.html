@@ -626,9 +626,9 @@
 
   <!-- Script Logic & Tracking -->
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNKA-19WRqDJD470B0Xt8-erwL8e8nqwwBajNJjSctWJcSwoDpSjJDbq7OXQMsHZjB/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7OWo0Dn6v6SeueFzKpcchAo77pGAZHqW70Vxpnz74R8CWquvDRqkKBLFJEfW4uPszcg/exec";
 
-    // 1. Recupera l'ID Qualtrics/Utente dall'URL (?uid=...) con persistenza in localStorage
+    // 1. Recupera l'ID Utente dall'URL (?uid=...) con persistenza in localStorage
     const urlParams = new URLSearchParams(window.location.search);
     let userId = urlParams.get('uid');
     if (userId) {
