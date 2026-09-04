@@ -628,36 +628,38 @@
   <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7OWo0Dn6v6SeueFzKpcchAo77pGAZHqW70Vxpnz74R8CWquvDRqkKBLFJEfW4uPszcg/exec";
 
-    // 1. Recupera l'ID Utente dall'URL (?uid=...) con persistenza in localStorage
+    // 1. Estrazione dinamica sicura dall'URL
     const urlParams = new URLSearchParams(window.location.search);
-    let userId = urlParams.get('uid');
-    if (userId) {
-      localStorage.setItem('qualtrics_user_id', userId);
-    } else {
-      userId = localStorage.getItem('qualtrics_user_id') || 'ANONIMO_NO_ID';
-    }
 
-    // 2. Recupera il session_id dall'URL (?session_id=... oppure ?sid=...) con fallback su sessionStorage o generazione casuale
+    // Recupera session_id (da session_id o sid in URL)
     let sessionId = urlParams.get('session_id') || urlParams.get('sid');
     if (sessionId) {
       sessionStorage.setItem('site_session_id', sessionId);
     } else {
-      sessionId = sessionStorage.getItem('site_session_id') || ('sess_' + Math.random().toString(36).substr(2, 9));
+      sessionId = sessionStorage.getItem('site_session_id') || ('SESS_' + Math.random().toString(36).substr(2, 9));
       sessionStorage.setItem('site_session_id', sessionId);
+    }
+
+    // Recupera user_id (da uid o user_id in URL). Se non presente, usa lo stesso sessionId
+    let userId = urlParams.get('uid') || urlParams.get('user_id');
+    if (userId) {
+      localStorage.setItem('qualtrics_user_id', userId);
+    } else {
+      userId = localStorage.getItem('qualtrics_user_id') || sessionId;
     }
 
     const pageStartTime = Date.now();
 
-    // Invio payload conforme alle colonne dello script
+    // 2. Invio dei dati al Google Sheet
     function sendToGoogleSheet(eventType, destination, details) {
       if (!GOOGLE_SCRIPT_URL) return;
 
       const payload = {
         user_id: userId,
+        session_id: sessionId,
         event_type: eventType,
         destination: destination || 'N/A',
-        details: details || '',
-        session_id: sessionId
+        details: details || ''
       };
 
       fetch(GOOGLE_SCRIPT_URL, {
